@@ -2,7 +2,7 @@ import java.util.LinkedList;
 import java.util.Stack;
 
 
-//This execution of this algorithm expects user to create a class Graph with vertex and adjacency matrix(Map<Integer, LinkedList<Edge>>)
+//Execution of this algorithm expects user to create a class Graph with vertex and adjacency matrix(Map<Integer, LinkedList<Edge>>)
 public class TopologicalSort {
 	
 	 private Graph graph;
