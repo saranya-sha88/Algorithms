@@ -1,0 +1,38 @@
+import java.util.LinkedList;
+
+
+public class DepthFirstSearch {
+	
+	private Graph graph;
+	
+	 private boolean[] visited;
+	
+	public DepthFirstSearch(Graph graph) {
+		this.graph = graph;
+		visited = new boolean[graph.getVertex()];
+	}
+	
+	public void depthFirstSearch() {
+		
+		
+		for(int i = 0; i< graph.getVertex(); i++) {
+			if(!visited[i]) {
+				dfsUtil(i);
+			}
+		}
+	}
+	
+	private void dfsUtil(int vertex) {
+		visited[vertex] = true;
+		System.out.println(vertex);
+		LinkedList<Edge> edges = graph.getAdjMatrix().get(vertex);
+		
+		for (Edge edge : edges) {
+			if(!visited[edge.getDest()])
+				dfsUtil(edge.getDest());
+		}
+		
+	}
+	
+
+}
