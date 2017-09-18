@@ -1,7 +1,7 @@
 import java.util.LinkedList;
 import java.util.Queue;
 
-
+//Execution of this algorithm expects user to create a class Graph with vertex and adjacency matrix(Map<Integer, LinkedList<Edge>>)
 public class BreadthFirstSearch {
 	
 	private Graph graph;
