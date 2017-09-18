@@ -1,0 +1,34 @@
+public class BinarySearch {
+	
+	
+
+	public static void main(String[] args) {
+		
+	    int[] A = {1,2,3,4,5,6,7};
+		
+		int result = binarySearch(A,0,A.length-1,5);
+		
+		
+		System.out.println("Result   "+result);
+
+	}
+	
+	public static int binarySearch(int[] A,int left,int right,int key)
+	{
+		int middle_value,n;
+		n= right-left;
+		middle_value = (n /2)+left;
+		
+		if(A[middle_value] == key)
+		{
+			return middle_value;
+		}else if(A[middle_value] > key)
+		{
+			return  binarySearch(A,left,middle_value,key);
+		}else{
+			return  binarySearch(A,middle_value+1,right,key);
+		}
+		
+	}
+
+}
