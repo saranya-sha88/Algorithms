@@ -1,0 +1,42 @@
+import java.util.LinkedList;
+import java.util.Stack;
+
+
+//This execution of this algorithm expects user to create a class Graph with vertex and adjacency matrix(Map<Integer, LinkedList<Edge>>)
+public class TopologicalSort {
+	
+	 private Graph graph;
+	
+	 private boolean[] visited;
+	
+	public TopologicalSort(Graph graph) {
+		this.graph = graph;
+		visited = new boolean[graph.getVertex()];
+	}
+	
+	public void topologicalSorting() {
+		Stack<Integer> stack = new Stack<Integer>();
+		
+		for(int i = 0; i< graph.getVertex(); i++) {
+			if(!visited[i]) {
+				topologicalSortingUtil(i, stack);
+			}
+		}
+		
+		while(!stack.isEmpty()) {
+			System.out.println(stack.pop());
+		}
+	}
+	
+	private void topologicalSortingUtil(int vertex, Stack<Integer> stack) {
+		visited[vertex] = true;
+		LinkedList<Edge> edges = graph.getAdjMatrix().get(vertex);
+		
+		for (Edge edge : edges) {
+			if(!visited[edge.getDest()])
+				topologicalSortingUtil(edge.getDest(),stack);
+		}
+		stack.push(vertex);
+	}
+
+}
