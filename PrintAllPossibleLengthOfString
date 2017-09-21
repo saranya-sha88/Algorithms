@@ -1,0 +1,22 @@
+
+public class PrintAllPossibleLengthOfString {
+	
+	public void printPermutationOfString(char[] input, StringBuffer output, int k) {
+		if(k == 0) {
+			System.out.println(output.toString());
+		}else if(k > 0) {
+			for(int i =0; i<input.length; i++) {
+				output.append(input[i]);
+				printPermutationOfString(input,output,k-1);
+				output.deleteCharAt(output.length()-1);
+			}
+		}
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		PrintAllPossibleLengthOfString permute = new PrintAllPossibleLengthOfString();
+		permute.printPermutationOfString("abc".toCharArray(), new StringBuffer(), 2);
+	}
+
+}
