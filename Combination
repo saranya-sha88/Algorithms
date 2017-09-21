@@ -1,0 +1,29 @@
+package com.interview.backtracking;
+
+public class Combination {
+	
+	public void combinationOfString(char[] input, int left, int right, StringBuilder str) {
+
+		if (str.length() > 0) {
+			System.out.println(str.toString());
+
+		}
+			//System.out.println(str.toString());
+
+		int i;
+		for(i=left; i< right; i++) {
+		    	str.append(input[i]);
+		    	combinationOfString(input, i+1, right, str);
+		    	str = str.deleteCharAt(str.length()-1);
+		}
+	}
+	
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Combination cmb = new Combination();
+		cmb.combinationOfString("1111223".toCharArray(), 0, "1111223".length(), new StringBuilder());
+
+	}
+
+}
